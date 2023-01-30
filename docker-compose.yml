@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  frontend:
+    container_name: next.js
+    working_dir: /app
+    build:
+        context: .
+        dockerfile: ./Dockerfile
+    ports:
+      - "3000:3000"
+    command: sh -c "npm install -g npm@latest && npm install && npm run build && npm run start"
+
+  nginx:
+    container_name: nginx
+    working_dir: /app
+    image: nginx:stable-alpine
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+        - ./nginx:/etc/nginx/conf.d:ro
