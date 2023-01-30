@@ -15,7 +15,7 @@ const Reviews = (props) => {
           {props.reviews.length && props.reviews.map((item, index) => {
             return (
               <div key={index} className='rewiew'>
-                <p>{`Человек с id: ${item.id} оставил следующий комментарий: ${item.body}`}</p>
+                <p>{`Человек с id: ${item.id} оставил следующий1 комментарий: ${item.body}`}</p>
               </div>
             )
           })}
